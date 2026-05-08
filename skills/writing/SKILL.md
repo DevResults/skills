@@ -1,11 +1,11 @@
 ---
 name: writing
-description: Use when writing, editing, rewriting, or reviewing prose to match Herb's plain-English writing style and avoid generic AI-sounding language.
+description: Use when writing, editing, rewriting, or reviewing prose to match our preferred plain-English writing style and avoid generic AI-sounding language.
 ---
 
 # Writing
 
-Write in plain English for smart readers. The voice should feel like a candid practitioner explaining what is actually going on: smart, serious, optimistic, honest, practical, specific, and human. Avoid corporate polish, consultant language, academic density, generic AI smoothness, and anything stuffy, pompous, obfuscating, or slick.
+Write in plain English for smart readers. The voice should feel like a candid practitioner explaining what is actually going on: smart, serious, optimistic, honest, practical, specific, and human. Avoid corporate polish, consultant language, academic density, generic AI smoothness, and anything sales-y, stuffy, pompous, obfuscating, or slick.
 
 Start with the real problem, shared premise, or purpose. Move quickly from the premise to the mechanics that make the issue hard.
 
@@ -21,27 +21,27 @@ Use ordinary pronouns when they fit. “We,” “you,” and “I” are often 
 
 > ❌ **Not:** The team looks forward to working with the organization.
 
-Make the reasoning visible. Name the context, constraints, incentives, tradeoffs, likely consequences, and edge cases. Prefer concrete examples over abstract principles: a workflow, a street, a price, a deadline, a data field, a user trying to get something done.
+Make the reasoning visible. Name the context, constraints, incentives, tradeoffs, likely consequences, and edge cases. Prefer concrete examples over abstract principles: a workflow, a price, a deadline, a data field, a user trying to get something done.
 
 > ✅ **Good:** If the data only lives in the spreadsheet, the dashboard is always a week out of date. Someone has to copy the numbers, check the formulas, and explain why the totals changed.
 
 > ❌ **Not:** Data synchronization is an important consideration for operational excellence.
 
-Concede before disagreeing. Acknowledge the strongest fair version of the other side, then state the problem directly. Disagree to clarify reality, not to score points.
+When the goal is persuasion, concede before disagreeing. Acknowledge the strongest fair version of the other side, then state the problem directly. Disagree to clarify reality, not to score points.
 
 > ✅ **Good:** The concern is real: nobody wants to make parking harder for people who already have long days. But free curb space is not actually free; it is scarce public land, and the current system hides the cost.
 
 > ❌ **Not:** Opponents of this proposal simply do not understand urban economics.
 
-Use uncertainty honestly. Distinguish facts from guesses, preferences, proposals, feelings, and decisions. Phrases like “I think,” “my sense is,” “probably,” “for now,” and “as a practical matter” are useful when they make the claim more accurate.
+Use uncertainty honestly. Distinguish facts from guesses, preferences, proposals, feelings, and decisions. Phrases like “I think,” “my sense is,” “probably,” or “for now,” are useful when they make the claim more accurate.
 
 > ✅ **Good:** My sense is that this will work for the first version, but it may break down once teams need custom approval steps.
 
 > ❌ **Not:** This approach will future-proof the platform.
 
-Prefer practical frames over ideological ones. Useful arguments often come from incentives, maintenance burden, coordination cost, fairness, safety, geometry, scarcity, or cognitive load. Do not reach for grand abstractions when a concrete constraint explains the issue.
+Prefer practical frames over ideological ones. Useful arguments often come from incentives, maintenance burden, coordination cost, fairness, scarcity, or cognitive load. Do not reach for grand abstractions when a concrete constraint explains the issue.
 
-Keep paragraphs short, usually one to three sentences. Use headings, bullets, numbered lists, and tables when they reduce cognitive load; do not turn everything into a framework. A one-sentence paragraph is fine when it sharpens the point.
+Keep paragraphs short, usually one to three sentences. Use headings, bullets, numbered lists, and tables only when they reduce cognitive load; do not turn everything into a framework. A one-sentence paragraph is fine when it sharpens the point.
 
 Use sentence case for headings and titles. Capitalize proper names and brand names, but do not capitalize ordinary words to make them feel important.
 
@@ -53,9 +53,19 @@ Keep lists internally consistent. Use either complete sentences or sentence frag
 
 > ✅ **Good:**
 >
-> - user permissions
-> - reporting workflows
+> This includes
+>
+> - user permissions,
+> - reporting workflows, and
 > - approval deadlines
+
+> ✅ **Also good:**
+>
+> With this approach:
+>
+> - Users can modify permissions.
+> - Administrators can manage reporting workflows.
+> - Managers can set approval deadlines.
 
 > ❌ **Not:**
 >
@@ -65,9 +75,13 @@ Keep lists internally consistent. Use either complete sentences or sentence frag
 
 Do not put a colon at the end of a heading.
 
-> ✅ **Good:** Implementation plan
+> ✅ **Good:**
+>
+> #### Implementation plan
 
-> ❌ **Not:** Implementation plan:
+> ❌ **Not:**
+>
+> #### Implementation plan:
 
 Use rhetorical questions only when they expose a hidden assumption.
 
@@ -75,7 +89,7 @@ Use rhetorical questions only when they expose a hidden assumption.
 
 > ❌ **Not:** But what does success really mean in today’s rapidly changing world?
 
-Use conversational transitions: “So,” “But,” “Now,” “Here’s the thing,” “To be clear,” “In practice,” “For example,” “At the same time,” and “The problem is.” Avoid stock transitions like “Moreover,” “In conclusion,” “It is important to note,” and “Delve.”
+Use conversational transitions: “So,” “But,” “Now,” “To be clear,” “In practice,” “For example,” “At the same time,” and “The problem is.” Avoid stock transitions like “Moreover,” “In conclusion,” or “It is important to note.”
 
 Use humor sparingly to deflate hype or bureaucracy. It should clarify the point, not decorate it.
 
@@ -89,15 +103,14 @@ Avoid passive prose that hides agency, false certainty, both-sides neutrality th
 
 ## Avoiding AI tells
 
-Avoid clichés and generic filler. These are not forbidden words in every context, but they are warning lights: if a sentence needs one of them, it probably needs more concrete thought instead.
+Avoid clichés and generic filler. These are not forbidden words in every context, but they are warning lights: If a sentence needs one of them, it probably needs more concrete thought instead.
 
-### Significance inflation
+#### ❌ Significance inflation
 
 - stands as
 - serves as
 - is a testament to
 - is a reminder of
-- plays a vital role
 - marks a pivotal moment
 - underscores the importance of
 - highlights the significance of
@@ -105,13 +118,10 @@ Avoid clichés and generic filler. These are not forbidden words in every contex
 - symbolizes an enduring legacy
 - contributes to the evolving landscape
 - sets the stage for
-- represents a shift
-- key turning point
-- focal point
 - indelible mark
 - deeply rooted
 
-### Analysis that sounds like analysis but does not say much
+#### ❌ Analysis that sounds like analysis but does not say much
 
 - highlighting
 - underscoring
@@ -119,42 +129,29 @@ Avoid clichés and generic filler. These are not forbidden words in every contex
 - ensuring
 - reflecting
 - symbolizing
-- contributing to
 - cultivating
 - fostering
-- encompassing
 - valuable insights
-- aligns with
 - resonates with
 - broader implications
 - sparked debate about
 - raises questions about
 
-### Promotional polish
+#### ❌ Promotional polish
 
 - boasts
-- vibrant
-- rich tapestry
 - profound
 - enhancing
 - showcasing
-- exemplifies
-- commitment to
-- natural beauty
-- nestled
-- in the heart of
 - groundbreaking
 - renowned
 - diverse array
-- seamless
-- robust
 - cutting-edge
-- world-class
-- unlock
 - elevate
-- transformative
 
-### Vague authority and over-attribution
+If a sentence claims importance, impact, legacy, or significance, make it prove the claim with facts.
+
+#### ❌ Vague authority and over-attribution
 
 - observers note
 - experts argue
@@ -167,8 +164,9 @@ Avoid clichés and generic filler. These are not forbidden words in every contex
 - active social media presence
 - based on available information
 
-### Stock structures
+#### Stock structures
 
+- It's not X. It's Y.
 - Not only X, but also Y.
 - It is not just X; it is Y.
 - Despite these challenges, X continues to thrive.
@@ -177,8 +175,5 @@ Avoid clichés and generic filler. These are not forbidden words in every contex
 - It is important to note that...
 - Worth noting is...
 - In conclusion...
-- Overall...
-- Would you like me to...
-- Let me know if you need...
 
-Prefer the plain version. Use “is” instead of “serves as,” “has” instead of “boasts,” “shows” instead of “underscores,” and a specific claim instead of “reflects broader trends.” If a sentence claims importance, impact, legacy, or significance, make it prove the claim with facts.
+Prefer the plain version. Use “is” instead of “serves as,” “has” instead of “boasts,” “shows” instead of “underscores,” and a specific claim instead of “reflects broader trends.”
