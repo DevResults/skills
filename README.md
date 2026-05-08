@@ -1,19 +1,17 @@
-# DevResults shared skills
+# DevResults skills
 
-Shared Codex skills for DevResults work live here. Each top-level skill folder should contain a `SKILL.md` file with YAML frontmatter and focused instructions.
+Shared DevResults agent skills live in this repository.
 
-Use `templates/skill` as the starting point for new skills:
-
-```bash
-cp -R templates/skill my-skill
-```
-
-Then update `my-skill/SKILL.md` and `my-skill/agents/openai.yaml`.
-
-To make these skills discoverable by local Codex, run:
+Install them with the open skills CLI:
 
 ```bash
-pnpm install-skills
+npx skills add DevResults/skills
 ```
 
-That script symlinks top-level skill folders into `${CODEX_HOME:-~/.codex}/skills`.
+To list available skills without installing:
+
+```bash
+npx skills add DevResults/skills --list
+```
+
+Skills should be stored under `skills/<skill-name>/SKILL.md`. Each `SKILL.md` needs YAML frontmatter with `name` and `description`, followed by concise instructions. Put detailed reference material in `references/`, reusable scripts in `scripts/`, and output templates or static assets in `assets/` inside that skill folder.
