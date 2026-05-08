@@ -68,6 +68,8 @@ If the user sees an authorization error caused by broad default scopes, use the 
 
 ## Drafting guidance
 
+Use the `writing` skill for voice and style. Keep the proposal plain-spoken, specific, and professional rather than polished into generic proposal language.
+
 Keep the proposal confident but not overcommitted. Answer the buyer's questions directly, then connect back to the broader value proposition. For technical or compliance questions, separate standard capabilities from items requiring review.
 
 Prefer this structure for direct written response sections:
