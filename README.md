@@ -18,7 +18,7 @@ If the skills in the repo change you'll need to reinstall them.
 
 ## Adding skills to this repo
 
-Skills should be stored under `skills/<skill-name>/SKILL.md`. Each `SKILL.md` needs YAML frontmatter with `name` and `description`, followed by concise instructions. Put detailed reference material in `references/`, reusable scripts in `scripts/`, and output templates or static assets in `assets/` inside that skill folder.
+Skills should follow the [Agent Skills](https://agentskills.io/home) conventions and should be stored under `skills/<skill-name>/SKILL.md`. Each `SKILL.md` needs YAML frontmatter with `name` and `description`, followed by concise instructions. Put detailed reference material in `references/`, reusable scripts in `scripts/`, and output templates or static assets in `assets/` inside that skill folder.
 
 ## The `.ralph/` workflow
 
@@ -35,3 +35,12 @@ Two skills work together to break a spec into tasks and execute them one at a ti
 | `.ralph/prompt.md` | Per-repo agent prompt injected into each subagent. Scaffolded from the `ralph-work` asset template on first run. |
 
 Add `.ralph/` to your project's `.gitignore` to keep these working files out of version control. `/ralph-work` will offer to do this for you on first run.
+
+## References and Inspiration
+
+A collection of repositories that are worth checking on periodically for skills to adopt or draw inspiration from:
+
+- [Anthropic skills](https://github.com/anthropics/skills) - Anthropic's public repository for Agent Skills
+- [marketingskills](https://github.com/coreyhaines31/marketingskills) - Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.
+- [Scott Tolinski's Skills](https://github.com/stolinski/s-stack/) - Skills from one of the hosts of the [Syntax.fm podcast](https://syntax.fm/)
+- [Sentry.io](https://github.com/getsentry/skills) - Agent Skills used by the Sentry team for development.
