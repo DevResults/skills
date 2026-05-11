@@ -1,7 +1,6 @@
+In @.ralph/todo.md, find the next unchecked top-level task and work only on that task.
 
-In @.ralph/todo.md, find the highest-priority task to work on and work only on that task. This should be the one YOU decide has the highest priority - not necessarily the first one in the list.
-
-ONLY WORK ON A SINGLE TASK. If the task you choose is especially complex, then your task is to break it into subtasks, replace the original task in the todo file and end your turn.
+ONLY WORK ON A SINGLE TASK. If the task is especially complex, break it into subtasks, replace the original task in the todo file and end your turn.
 
 When you complete a task, before committing:
 
