@@ -1,0 +1,11 @@
+In @.ralph/todo.md, find the next unchecked top-level task and work only on that task.
+
+ONLY WORK ON A SINGLE TASK. If the task is especially complex, break it into subtasks, replace the original task in the todo file and end your turn.
+
+When you complete a task, before committing:
+
+- Check that the project builds successfully and tests pass
+- Where applicable, add tests to validate your changes and confirm that they pass
+- Update the todo list by checking off the completed task and moving it to the "Completed" section
+
+Make thematic git commits as necessary for the task. Update @.ralph/todo.md with your progress but do not commit changes to it. If, while implementing the task, you notice the todo list is complete, output <promise>COMPLETE</promise> and exit.
