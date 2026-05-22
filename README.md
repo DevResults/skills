@@ -44,3 +44,4 @@ A collection of repositories that are worth checking on periodically for skills 
 - [marketingskills](https://github.com/coreyhaines31/marketingskills) - Marketing skills for Claude Code and AI agents. CRO, copywriting, SEO, analytics, and growth engineering.
 - [Scott Tolinski's Skills](https://github.com/stolinski/s-stack/) - Skills from one of the hosts of the [Syntax.fm podcast](https://syntax.fm/)
 - [Sentry.io](https://github.com/getsentry/skills) - Agent Skills used by the Sentry team for development.
+- [Matt Pocock's skills](https://github.com/mattpocock/skills) - Skills for Real Engineers.
