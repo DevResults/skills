@@ -2,19 +2,45 @@
 
 Shared DevResults agent skills live in this repository.
 
-Install them with the open skills CLI:
+## Install the skills
+
+Run the open skills CLI and follow the prompts:
 
 ```bash
 npx skills add DevResults/skills
 ```
 
-You'll be able to select which skills you want to install.
+When prompted:
 
-If you're using Claude Code or Pi, you'll need to add these manually to the install targets.
+1. **Select the skills** you want — or pick all of them.
+2. **Installation scope:** choose `Global` so the skills are available in every project.
+3. **Installation method:** choose `Symlink`. This is what makes updating easy (see below).
+4. **Install targets:** if you're using Claude Code or Pi, add them manually when asked.
 
-Choose `Global` installation scope and `Symlink` installation method.
+That's it — the selected skills are now available to your agent.
 
-If the skills in the repo change you'll need to reinstall them.
+## Update to the latest skills
+
+Pull the latest version of every skill you've installed:
+
+```bash
+npx skills update
+```
+
+To update only your global skills, or specific ones by name:
+
+```bash
+npx skills update -g                        # only global skills
+npx skills update new-pr task-to-ralph      # only these named skills
+```
+
+To pick up **newly added** skills (ones you didn't select the first time), re-run the install command and select them:
+
+```bash
+npx skills add DevResults/skills
+```
+
+You can see what you currently have installed with `npx skills list` (add `-g` for just the global ones).
 
 ## Adding skills to this repo
 
