@@ -1,0 +1,33 @@
+name: Test read agent sessions
+
+on:
+  pull_request:
+    paths:
+      - ".github/workflows/test-read-agent-sessions.yml"
+      - "skills/read-agent-sessions/**"
+  push:
+    paths:
+      - ".github/workflows/test-read-agent-sessions.yml"
+      - "skills/read-agent-sessions/**"
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os:
+          - macos-latest
+          - ubuntu-latest
+          - windows-latest
+    defaults:
+      run:
+        working-directory: skills/read-agent-sessions
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 22.18.0
+      - run: npm install --ignore-scripts --no-package-lock
+      - run: npm test
