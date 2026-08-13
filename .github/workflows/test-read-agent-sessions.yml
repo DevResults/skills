@@ -29,5 +29,4 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: 22.18.0
-      - run: npm install --ignore-scripts --no-package-lock
-      - run: npm test
+      - run: npx --yes vitest@4.1.4 run scripts/tests/agent-sessions.test.ts
