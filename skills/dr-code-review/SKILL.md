@@ -23,13 +23,25 @@ Detect, don't ask:
   (`gh pr view --json number,title,body,baseRefName`), review the PR. Read its
   description and its filled-in checklist — a submitter who ticked "All strings
   are localized" on a diff full of bare literals is itself a finding.
-- Otherwise review the branch against `main` (`git diff main...HEAD`).
+- Otherwise review the branch against `main` (`git diff origin/main...HEAD`).
 - If the user names a PR number or URL, use that.
 
 **Diff against `baseRefName`, not `main`.** PRs here are routinely stacked.
 `git diff main...HEAD` on a stacked PR pulls in the whole base PR and inflates
 the surface — a 16-file review becomes 26. Get the base from
-`gh pr view --json baseRefName` and diff `git diff <base>...HEAD`.
+`gh pr view --json baseRefName`, then:
+
+```bash
+BASE=$(gh pr view --json baseRefName -q .baseRefName)
+git fetch origin "$BASE"
+git diff "origin/$BASE...HEAD"
+```
+
+Fetch and diff `origin/<base>`, not the bare ref. The base of a stacked PR is
+usually someone else's branch and has no local ref in the reviewer's clone —
+`git diff <base>...HEAD` then dies with "unknown revision" before the review
+starts, and the obvious recovery is to fall back to `main`, which is the exact
+inflation this section exists to prevent.
 
 When the base is not `main`:
 

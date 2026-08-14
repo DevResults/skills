@@ -17,14 +17,21 @@ Exclude the directory locally before writing:
 EXCLUDE=$(git rev-parse --git-path info/exclude)
 if [ -z "$EXCLUDE" ]; then
   echo 'not inside a git repo — do not write the tracking file here' >&2
-elif ! grep -qxF '.reviews/' "$EXCLUDE"; then
-  echo '.reviews/' >> "$EXCLUDE"
+else
+  mkdir -p "$(dirname "$EXCLUDE")"
+  grep -qxF '.reviews/' "$EXCLUDE" 2>/dev/null || echo '.reviews/' >> "$EXCLUDE"
 fi
 ```
 
 The non-empty check is not decoration. Run outside a repo, `git rev-parse` fails
 and leaves `$EXCLUDE` empty; a one-liner that appends unconditionally then writes
 `.reviews/` into a file named `""` in the current directory instead of failing.
+
+The `mkdir -p` and the `2>/dev/null` cover the first run in a clone where
+`info/exclude` has never been created. Without them `grep` prints
+`No such file or directory` to stderr on the way to doing the right thing —
+harmless, but it reads like a failure in the middle of an otherwise silent
+setup step.
 
 `.git/info/exclude`, not `.gitignore`. The exclude file is local to the clone, so
 review state never shows up as a repo modification, never lands in a commit, and
