@@ -26,20 +26,6 @@ Design as discussed, if it gets built:
     otherwise every agent independently reconstructs context and you pay for
     it N times.
 
-## Consolidate every closed set into the tracking file
-
-Not built. The skill runs on closed sets — nine tags, six finding dispositions,
-six `Outcome` values, the `HV-` dispositions — and they live in two places.
-`references/tracking-file.md` owns the tags, the `Outcome` set and the `HV-` set;
-`references/triage.md` owns the finding dispositions. Everywhere else cites them,
-mostly correctly, and every drift found so far has been a copy of a set going
-stale against its original.
-
-The fix is structural rather than another round of corrections: every closed set
-is declared once, in `references/tracking-file.md`, and every other file links to
-it and enumerates nothing. That retires the whole class of drift instead of the
-instances currently known.
-
 ## Other ideas
 
 - A `--staged` mode for pre-commit self-review.
@@ -50,12 +36,17 @@ instances currently known.
 ## Answered
 
 - *Which reference files fire most often?* The `Tag` column in the tracking file
-  records this per finding, from a closed nine-value set. Reading it across a
+  records this per finding, from a closed set. Reading it across a
   batch of `.reviews/*.md` answers the question directly — a reference file that
   never appears as a tag is either wrong or its trigger is mis-specified.
 
 ## Since built
 
-Everything above is unbuilt. What used to be listed here and no longer is: the
-triage and remediation workflows — see `references/triage.md` and
-`references/tracking-file.md`.
+Everything above is unbuilt. What used to be listed here and no longer is:
+
+- The triage and remediation workflows — see `references/triage.md` and
+  `references/tracking-file.md`.
+- Consolidating every closed set into one place. `references/tracking-file.md`
+  now has a `## Vocabulary` section owning severity, confidence, tags, both
+  disposition sets, `Outcome` and the `HV-` owner roles; every other file cites
+  it and enumerates nothing.

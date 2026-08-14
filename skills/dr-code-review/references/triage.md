@@ -12,19 +12,10 @@ offers; the human accepts.
 
 ## Dispositions
 
-| Disposition | Meaning |
-|---|---|
-| `Fix` | The agent applies it. May carry a free-text instruction. |
-| `Defer` | Real, but a followup. Collects into the close-out handoff. |
-| `Won't fix` | Accepted, with a recorded reason. |
-| `Withdraw` | Not a real finding. |
-| `Discuss` | Needs the PR author before anyone acts. |
-| `Revert` | Auto-fixed rows only — undo the agent's fix. |
-
-`Won't fix` and `Withdraw` are **not** the same and must not be collapsed.
-`Won't fix` says the finding was right and the team accepts the cost.
-`Withdraw` says the *review* was wrong. Only the second one tells you this skill
-needs fixing, and merging them destroys the only feedback signal it has.
+The disposition values, the `Outcome` values and the `HV-` set are all defined in
+[tracking-file.md](tracking-file.md#vocabulary). Read it before running this
+wizard; this file says which value each answer maps to, never what the values
+are.
 
 A `Fix` may carry a redirect — *"fix it, but use the existing helper"*. Record it
 verbatim in the finding's block; it is what the fixer is handed, and paraphrasing
@@ -40,11 +31,11 @@ Resuming: read the file and check **both** tables, in order.
 1. The findings table — start at the first finding whose `Disposition` is empty.
 2. Then the `HV-` table — start at the first row whose `Disposition` is empty.
 
-Triage is complete only when no row in either table has an empty `Disposition`.
-An `HV-` row reading `Open` has been asked about and deliberately left open; an
-empty one has never been put to anyone. Checking only the findings table declares
-a half-finished run finished, and the `HV-` items are the ones most likely to be
-dropped in the first place. Do not re-ask anything already dispositioned.
+Triage is complete only when no row in either table has an empty `Disposition` —
+the untriaged marker, defined in [tracking-file.md](tracking-file.md). Checking
+only the findings table declares a half-finished run finished, and the `HV-`
+items are the ones most likely to be dropped in the first place. Do not re-ask
+anything already dispositioned.
 
 A review with zero findings and zero `HV-` items skips triage — and per the
 review phase that produced it, that outcome is a signal the review went wrong,
@@ -281,7 +272,7 @@ Two outputs either way:
 
 1. **New findings** get new IDs and prefix their `Summary` with
    `from-fix DR-NNN`, naming the finding whose remediation introduced them. Their
-   `Tag` still comes from the closed nine-value set — `from-fix` is not a tag.
+   `Tag` still comes from the closed set — `from-fix` is not a tag.
    That chain is the point: a bug the fix created should point at what caused it.
 2. **Every row dispositioned `Fix` is verified mechanically.** Rows dispositioned
    anything else were not fixed and are not checked this way. The anchored line's

@@ -38,10 +38,9 @@ git diff "origin/$BASE...HEAD"
 ```
 
 Fetch and diff `origin/<base>`, not the bare ref. The base of a stacked PR is
-usually someone else's branch and has no local ref in the reviewer's clone —
-`git diff <base>...HEAD` then dies with "unknown revision" before the review
-starts, and the obvious recovery is to fall back to `main`, which is the exact
-inflation this section exists to prevent.
+usually someone else's branch with no local ref, so the bare form dies with
+"unknown revision" and the obvious recovery is `main` — the exact inflation this
+section exists to prevent.
 
 When the base is not `main`:
 
@@ -208,25 +207,15 @@ mode for a review this size; the anchor requirement kills it.
 Each finding carries:
 
 - **ID** — `DR-NNN`, assigned in report order, never renumbered.
-- **Severity** — `Blocker` (the five gates), `Should fix` (real defect, doesn't
-  block), `Consider` (nits, refactors, missed refactoring opportunities).
-- **Confidence** — `Verified` (you read the code and confirmed it) or
-  `Candidate` (pattern match, needs a human to confirm). Much of this skill is
-  heuristic; say which is which. Do not report a Candidate as Verified.
-- **Tag** — one value from the closed set in `references/tracking-file.md`.
+- **Severity**, **Confidence**, **Tag** — one value each from the closed sets in
+  `references/tracking-file.md`. Invent no values, and never report a `Candidate`
+  as `Verified`.
 - What is wrong, and why it matters — in that order, in one or two sentences.
-- **Proposed disposition** — what you would do with it: `Fix` (with the patch),
-  `Defer`, `Won't fix`, `Withdraw`, or `Discuss`. This is a proposal, not an
-  action. **A read-only review changes no code.** Triage (§8) is where a human
-  accepts or overrides it.
-
-**Write the proposal into the `Proposed` field of the finding's `<details>` body,
-and leave the `Disposition` column empty.** A review never fills
-`Disposition` — that column is triage's, and an empty cell is the only signal a
-later session has that the row has not been decided yet. Filling it with your own
-proposal makes the next session read your recommendation as a human decision and
-apply it. New findings are written `Disposition` empty, `Outcome: Open`; see
-`references/tracking-file.md`.
+- **Proposed disposition** — what you would do with it, from the same vocabulary,
+  with the patch if it is a `Fix`. This is a proposal, not an action. **A
+  read-only review changes no code.** Triage (§8) is where a human accepts or
+  overrides it. Write it into the `**Proposed**` field of the `<details>` body and
+  leave the `Disposition` column empty — that column is triage's.
 
 **`Verified` means the premise was checked, not just the line.** Before filing
 any finding of the form *"this violates the convention here"* — alphabetical
@@ -247,14 +236,12 @@ the correction from anyone who already read the review.
 Concrete actions, not caveats. This is where the things you cannot check go:
 client custom queries, dynamic tables, real client data, running the app.
 
-Each gets an `HV-NNN` id and an owner drawn from the PR template's three roles
-(`Submitter`, `Data Reviewer`, `Engineer Reviewer`), so triage can walk them and
-so an unfinished one is visible in the close-out instead of buried in prose.
+Each gets an `HV-NNN` id and an owner from the closed set in
+`references/tracking-file.md`, so triage can walk them and so an unfinished one
+is visible in the close-out instead of buried in prose.
 
-Write `HV-` rows with the `Disposition` cell **empty**, not `Open` — same rule as
-the findings table. `Open` means a human was asked and chose to leave it open;
-empty means nobody has been asked yet, which is what triage looks for when it
-resumes. See `references/tracking-file.md`.
+`HV-` rows are written with the `Disposition` cell **empty**, not `Open` — same
+rule as the findings table, per `references/tracking-file.md`.
 
 Write instructions, not warnings:
 
@@ -312,10 +299,10 @@ A review does not change code. If the user asks you to fix what you found:
   `references/triage.md`.
 - **Re-run §6 after each commit** and confirm you are back to the baseline
   numbers, not merely green. If §6 was skipped at review time because the diff
-  was docs-only, there are no baseline numbers: confirm instead that the fix
-  commits are still docs-only. The moment a fix touches code, §6 applies — build
-  and test what it touched, and record that as the baseline in the tracking file,
-  noting it was established at the fix rather than at the review.
+  was docs-only, confirm instead that the fix commits are still docs-only. The
+  moment a fix touches code, §6 applies — build and test what it touched, and
+  record that as the baseline in the tracking file, noting it was established at
+  the fix rather than at the review.
 - **No speculative fixes.** If you could not demonstrate the failure, do not
   change the code for it. Broadening a `catch` against an exception you never
   showed reaches that line trades a known behavior for an unknown one. Leave it
@@ -325,18 +312,12 @@ A review does not change code. If the user asks you to fix what you found:
   `references/agent-smells.md` §7 — revert the fix, capture the failure output,
   restore, and put that output in the review. A new test that passes both
   before and after closes nothing.
-- **Update the findings table.** Every row ends with one value from the closed
-  `Outcome` set in `references/tracking-file.md` — no other value is valid — and
-  open rows get an owner action.
-- **Re-review after the fixes land.** They are new code. `references/triage.md`
-  has the rules: fix-commit diff by default, whole diff under `--full`, new
-  findings prefixing their `Summary` with `from-fix DR-NNN`, and a two-cycle cap
-  counted from the run-log lines in the tracking file.
-- **Close a row only on evidence.** The anchored line's text must have changed
-  and §6 must be back to baseline. A fix that was claimed but not made is
-  `Needs recheck`, not `Fixed`.
-- **Close out with the counts line and the handoff** — open findings with owners,
-  plus the outstanding `HV-` items.
+
+Then re-review: the fixes are new code and get the same review the PR got.
+`references/triage.md` owns that phase in full — its scope, the `from-fix DR-NNN`
+chain, mechanical verification of every `Fix` row before it may be closed, the
+two-cycle cap counted from the file, and the close-out counts line and handoff.
+Follow it; do not restate it here.
 
 ## Related project skills
 
