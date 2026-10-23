@@ -15,7 +15,7 @@ Devex exposes a clean REST API at `https://www.devex.com/api/funding_projects`. 
 ## First-Time Setup
 
 ```bash
-pip install playwright pandas
+pip install playwright
 playwright install chromium
 ```
 
